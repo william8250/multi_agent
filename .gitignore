@@ -1,0 +1,74 @@
+# OS and editor files
+.DS_Store
+._*
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local app state, databases, backups and run artifacts
+**/local-data/
+**/runtime/
+**/execution-workspaces/
+**/*.sqlite
+**/*.sqlite3
+**/*.db
+**/*.db-journal
+**/*.backup
+**/*.bak
+**/*.log
+**/*.pid
+**/*.tmp
+
+# Dependencies and generated build/test output
+**/node_modules/
+**/coverage/
+**/dist/
+**/build/
+**/.cache/
+**/.next/
+
+# Credentials and local environment configuration
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*SecretKey*.csv
+credentials*.json
+secrets*.json
+
+# User-specific application and cloud setup
+.workbuddy/
+cloudbaserc.json
+cloudbase-downloads/
+
+# Private review transcripts, screenshots and run evidence can contain
+# account identifiers, local paths, project data or provider-generated content.
+collaboration-app/evidence/
+projects/xique/collaboration/evidence/
+projects/xique/collaboration/outputs/
+projects/xique/v2/evidence/
+collaboration-kickoff/reviews/
+collaboration-kickoff/packets/
+
+# Downloaded third-party skills/packages: redistribute only after checking license.
+collaboration-kickoff/dependencies/
+projects/xique/collaboration/
+projects/xique/config/
+
+# Local planning notes and design previews
+stable_workfollow.md
+collaboration-app/design/**/preview.png
+projects/xique/design/**/*.png
+projects/xique/design/**/http-verification.json
+
+# Temporary CloudBase connectivity probe, not a deployable function.
+cloudfunctions/netprobe-tmp/

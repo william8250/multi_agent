@@ -1,0 +1,11 @@
+'use strict';
+const map=`<div class="mock-map" aria-label="虚构路线示意图，不可导航"><svg viewBox="0 0 320 150" role="img" aria-label="示意路径与三个停留点"><path class="water" d="M0 0H145Q115 50 150 80T130 150H0Z"/><path class="road" d="M170 0L230 150M145 25L320 85M150 120L320 60"/><path class="trail" d="M150 120Q170 100 190 80T238 32"/><circle cx="150" cy="120" r="7"/><circle cx="190" cy="80" r="7"/><circle cx="238" cy="32" r="7"/><text x="16" y="24">示意 · 非真实地图</text><text x="205" y="106">当前停留点</text></svg></div>`;
+function mock(scene){
+ const brand='<div class="mock-top"><strong>喜鹊</strong><span>杭州漫步 · 视觉稿</span></div>';
+ if(scene==='start')return brand+`<p class="mock-kicker">一条短路线，先走得明白</p><h4>先看看今天的路线。</h4><div class="mock-tags"><span>固定候选路线</span><span>偏好调整为P1预览</span></div>${map}<div class="mock-info"><strong>短路线候选 · 仅示意</strong><p>湖畔停留点 → 街巷观察点 → 歇脚点</p><small>正式版需核实步行路径、时间与资料来源。</small></div><div class="mock-primary">查看路线并准备开始</div><p class="mock-footnote">开始前解释定位与麦克风用途，允许不用语音。</p>`;
+ if(scene==='end')return brand+`<p class="mock-kicker">这一段散步，先到这里</p><h4>游览已结束</h4><div class="mock-status">已停止 · 不继续定位或通话（设计状态）</div>${map}<div class="mock-info"><strong>想记住眼前的什么？</strong><div class="mock-note">一段故事、一处风景，或者下次再来的理由……</div><small>我的笔记 · P1探索 · 不公开分享</small></div><div class="mock-primary">保存私密笔记</div><div class="mock-secondary">再走一段　 ·　反馈体验</div>`;
+ return brand+`<div class="mock-status">游览进行中 · 前台模式（设计状态）</div>${map}<p class="mock-kicker">当前停留点 / 湖畔观察</p><h4>先停一下，听听眼前。</h4><div class="mock-info"><p>抬头看看水面与岸边的光。想听更短一点，或者换个话题，都可以直接告诉我。</p><small>示例文案 · 史实讲解须有可核验来源</small></div><div class="mock-primary">随时提问 · 开口可打断</div><div class="mock-controls"><span>暂停讲解</span><span>结束游览</span></div><p class="mock-footnote">语音和定位均为视觉状态示意，当前没有接通。</p>`;
+}
+function selectScene(scene){document.getElementById('mock-a').innerHTML=mock(scene);document.getElementById('mock-b').innerHTML=mock(scene);for(const b of document.querySelectorAll('[data-scene]'))b.setAttribute('aria-pressed',String(b.dataset.scene===scene));document.getElementById('scene-note').textContent=`正在对比：${{start:'出发前',walk:'游览中',end:'结束后'}[scene]}。稿内控件仅作视觉展示；上方可切换流程。`;}
+for(const b of document.querySelectorAll('[data-scene]'))b.onclick=()=>selectScene(b.dataset.scene);
+selectScene('walk');

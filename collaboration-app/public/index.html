@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>协作台 · 一起把想法做出来</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script><script src="/tasks.js" defer></script><script src="/artifacts.js" defer></script><script src="/workspaces.js" defer></script><script src="/reviews.js" defer></script><script src="/gates.js" defer></script><script src="/user.js" defer></script><script src="/plans.js" defer></script></head>
+<body data-mode="user">
+<svg class="icon-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><symbol id="icon-squares" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"/>
+</symbol><symbol id="icon-idea" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
+</symbol><symbol id="icon-progress" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/>
+</symbol><symbol id="icon-feedback" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
+</symbol><symbol id="icon-check" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</symbol></svg>
+<div class="shell">
+<aside><div class="brand">协作台<span>跨平台 · 多智能体</span></div><a class="user-only setup-entry" id="user-intake-link" href="/intake" target="_blank" rel="noopener">开发前配置台 ↗</a><nav class="user-only" aria-label="用户导航"><a href="#overview"><svg class="ui-icon" aria-hidden="true"><use href="#icon-squares"></use></svg>项目全貌</a><a href="#home"><svg class="ui-icon" aria-hidden="true"><use href="#icon-idea"></use></svg>定义需求</a><a href="#progress"><svg class="ui-icon" aria-hidden="true"><use href="#icon-progress"></use></svg>研发进展</a><a href="#decisions"><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>需要我决定 <span id="user-decision-count"></span></a><a href="#experience"><svg class="ui-icon" aria-hidden="true"><use href="#icon-feedback"></use></svg>体验与审美</a><a href="#guide"><svg class="ui-icon" aria-hidden="true"><use href="#icon-check"></use></svg>用户手册</a></nav><nav class="agent-only" aria-label="Agent导航"><a href="#coordination">用户交互队列</a><a href="#project">01　项目</a><a href="#config">02　配置与资料</a><a href="#tasks">03　任务与交接</a><a href="#review">04　评审与人工复核</a><a href="#records">05　记录与备份</a></nav><div class="local">本机运行<br>双态协作 · 用户态概览版</div></aside>
+<main>
+<header><span id="crumb">项目</span><div class="mode-switch" aria-label="操作视角"><button id="mode-user" type="button" class="quiet">用户态</button><button id="mode-agent" type="button" class="quiet">Agent操作态</button></div></header>
+<div id="notice" role="status" aria-live="polite" hidden></div>
+<div class="user-only user-project-bar"><label for="user-project">当前项目</label><select id="user-project"></select><button id="user-refresh" class="quiet">刷新进展</button><span id="user-freshness" class="hint"></span></div>
+<section id="overview" class="page user-page" hidden>
+<p class="eyebrow">从想法到作品 · 你掌握方向</p><h1>看清全貌，再走下一步。</h1><p class="lead">你负责说清需求、判断体验和审美；协调方组织执行、评审与测试。重要取舍会单独提醒你。</p>
+<div id="user-overview-summary" aria-live="polite"></div>
+<div class="section-head"><h2>一个想法，怎样变成可用的作品？</h2><a class="text-link" href="#progress">查看实际进展 →</a></div>
+<p class="hint">流程图是开发框架；标签只反映已登记工作，不代表依次通过。原型可以用于探索，正式交付仍需前置需求与设计依据。</p><ol id="user-lifecycle" class="lifecycle"></ol>
+<div class="overview-guide"><h2>你与多方 Agent，怎样一起工作？</h2><div class="collab-flow" aria-label="协作信息流：需求经过协调、执行与独立核查，再返回体验反馈">
+<div><strong>你</strong><span>目标 · 资料 · 审美</span><a href="#home">定义需求</a></div><span class="flow-arrow" aria-hidden="true">→</span>
+<div><strong>协调方（主Agent）</strong><span>整理依据 · 分工交接</span><small>共享项目资料与记录</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+<div><strong>执行与配合</strong><span>各自输出 · 汇集成果</span><small>按任务调用可用平台</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+<div><strong>独立核查</strong><span>评审 · 测试 · 风险</span><a href="#progress">看成果与意见</a></div></div><p class="feedback-loop">← 把可体验版本和重要选择带回给你；你的反馈进入下一轮 →</p>
+<details><summary>这张图代表什么？</summary><p class="hint">这是协作流程说明，不代表后台已自动调用所有平台。当前仍由协调方接力；实际执行、结果与来源以项目记录为准。你的输入和成果共享同一项目依据，独立评审在收齐前隔离意见。</p></details></div>
+<div class="user-action-row"><a class="action-tile" href="#home"><strong>把需求说清楚</strong><span>谁来用？先解决哪个困扰？</span></a><a class="action-tile" href="#progress"><strong>看看做到哪了</strong><span>查看成果、评审与未解决风险</span></a><a class="action-tile" href="#experience"><strong>试一试，给点审美建议</strong><span>告诉我们哪里别扭、喜欢哪种风格</span></a></div>
+</section>
+<section id="stage" class="page user-page" hidden><a href="#overview" class="text-link">← 返回项目全貌</a><nav id="user-stage-nav" class="stage-navigation" aria-label="阶段成果导航"></nav><div id="user-stage-content"></div></section>
+<section id="guide" class="page user-page" hidden>
+<p class="eyebrow">用户手册 / 随用随查</p><h1>把想法说清楚，其余一起推进。</h1><p class="lead">这份手册解释协作台怎么用，以及提交后会发生什么。你负责目标、体验与重要取舍，协调方负责组织执行和核查。</p>
+<h2>开发中有新想法，去哪里说？</h2>
+<div class="status-table-wrap" role="region" aria-label="需求调整操作指引" tabindex="0"><table class="status-table"><thead><tr><th>你的想法</th><th>在哪里提出</th><th>当前会如何处理</th></tr></thead><tbody>
+<tr><th scope="row">改配色、排版、按钮或文案</th><td><a href="#experience">体验与审美 →</a></td><td>保存反馈，协调方评估并安排修改；不自动修改代码。</td></tr>
+<tr><th scope="row">补充功能或使用场景</th><td><a href="#home">定义需求 →</a></td><td>保存为新输入，协调方检查与原需求的关系，补充范围和验收条件。</td></tr>
+<tr><th scope="row">改核心目标、取消功能或调整优先级</th><td>页面常驻的“调整方向”</td><td>保存新方向，并暂停项目后续分发与批准；协调方更新计划后，你再决定何时继续。</td></tr>
+</tbody></table></div>
+<p class="hint">分不清属于哪类时，直接用自己的话描述，不必先判断技术影响。协调方会先整理；涉及方向、明显费用或重要体验取舍，再提出明确选项。</p>
+<details open><summary>第一次使用：从哪里开始？</summary><ol><li>选择当前项目；新项目先在“定义需求”说想法，必要时填写开发前配置。</li><li>在“项目全貌”查看开发框架，点击阶段卡片进入该阶段的成果、资料和评审。</li><li>在“研发进展”看已登记事实；在“体验与审美”打开真实成果并反馈。</li><li>“需要我决定”出现卡片时，比较影响再选择；也可以填写自己的方案。</li></ol></details>
+<details><summary>怎样提意见，更容易改到点上？</summary><p>说明“哪个地方、现在有什么问题、希望改成什么样”，有参考链接可以一起提供。</p><p>例如：“游览中的暂停入口不明显，希望固定在底部；整体保留旅行手册的感觉。”</p><p>想取消或替换当前研发目标，请用“调整方向”，不要只在普通反馈里写“先别做了”。</p></details>
+<details><summary>提交后，在哪里看处理情况？</summary><p>想法和反馈保存在“定义需求”的“我的想法与反馈”，协调方回应后会显示整理结果；研发安排和成果变化在“研发进展”及对应阶段页查看。只有需要你作选择的事项才会形成决策卡。</p><p>目前没有完整自动变更影响卡或逐条需求追踪界面。保存输入不等于已分析影响、调用模型、修改代码或完成验收。</p></details>
+<details><summary>暂停、调整方向，能立刻停下所有 Agent 吗？</summary><p>暂停会拦截本项目后续分发与批准，并尝试停止本机受管任务。外部应用中已经运行的任务，需要协调方另行停止；不能保证点击后瞬间停止所有平台。</p><p>调整方向会保留旧任务、评审与成果。新方向等待协调方更新计划时，不能直接恢复分发。不要把暂停当作撤回已经发生的外部操作。</p></details>
+<details><summary>怎样理解进度、评审和验收？</summary><ul><li>“已收到成果”表示已回收输出，不代表功能正确。</li><li>“双评审已收齐”表示意见已到齐，不代表分歧解决或产品通过。</li><li>“测试通过”只覆盖实际执行的测试，不能代替未测场景。</li><li>“阶段成果”可以是草案、视觉探索或原型，是否验收需看明确记录。</li></ul></details>
+<details><summary>哪些能力仍由协调方接力？</summary><p>当前的上下文整理、部分跨平台应用投递、影响分析与任务安排仍由协调方处理。页面展示已登记事实，不是所有外部应用的实时心跳。</p><p>不要在需求、反馈或共享资料中粘贴密码、API Key 等凭据。填写链接或路径只是记录引用，不代表系统已读取或授予访问权限。</p></details>
+<p class="hint">手册更新：2026-11-06。按当前实际能力说明；后续功能变化时同步更新。</p><p><a class="text-link" href="#overview">回到项目全貌 →</a></p>
+</section>
+<section id="home" class="page user-page" hidden>
+<h1>定义需求</h1>
+<p class="hint"><a href="#guide">新想法、功能调整该怎么提？查看用户手册 →</a></p><form id="user-idea-form" novalidate><label for="user-idea">你想做什么，想解决什么问题？</label><textarea id="user-idea" rows="3" maxlength="8000" placeholder="例如：我想给家里的烘焙店做一个预订网页，顾客能选口味、数量和取货时间。"></textarea><details><summary>跟着四个问题补充（可选）</summary><div class="form-pair"><div><label for="user-audience">谁会用？</label><input id="user-audience" maxlength="600" placeholder="例如：第一次来杭州自由行的人"></div><div><label for="user-pain">现在最困扰他们的是什么？</label><input id="user-pain" maxlength="600" placeholder="例如：边走边翻攻略，很打断体验"></div></div><label for="user-first-scope">第一版最想实现哪三件事？</label><textarea id="user-first-scope" rows="2" maxlength="1000" placeholder="例如：到点听故事、随时追问、一键暂停；社区以后再做"></textarea><label for="user-success">怎样才算做得好？</label><textarea id="user-success" rows="2" maxlength="1000" placeholder="例如：第一次使用也能开始游览；讲解不乱播；我开口就能打断"></textarea><p class="hint">这些回答会随想法一起保存，帮助协调方整理 PRD；提交不等于需求已经批准。</p></details><details><summary>补充参考资料（可选）</summary><label for="user-reference">参考链接、资料路径或说明</label><textarea id="user-reference" maxlength="2000" rows="2" placeholder="可以粘贴参考链接或资料位置；这里只记录，不会自动读取或上传文件。"></textarea></details><p id="user-idea-error" class="field-error" role="alert" hidden></p><button type="submit">把想法交给协调方</button><p class="hint">当前由协调方接力处理；保存想法不代表已经调用外部应用。</p></form>
+<p id="user-idea-result" class="result" role="status" hidden></p><div id="user-home-next" class="user-next"></div>
+<details><summary>项目设置与开发偏好</summary><div id="user-settings"></div><p class="hint">开发前配置台是独立填写页面，包含开发偏好、套餐与模型、资料库、仓库/CloudBase、skill、分工与权重。已有项目配置保留，无需重新填写。</p><p><a class="text-link" href="http://127.0.0.1:8765/" target="_blank" rel="noopener">打开开发前配置台（保留原地址草稿）</a></p><p><a id="user-edit-config" class="text-link" href="/intake" target="_blank" rel="noopener">直接编辑并保存配置版本</a></p><p class="hint">直存页面可加载已有配置并保存新版本；旧任务与评审保留在旧版。也可从 8765 一键带入草稿，不必反复导出 JSON。</p><a class="text-link" href="/intake" target="_blank" rel="noopener">备用：本服务配置页面（不含 8765 草稿）</a></details>
+<h2>我的想法与反馈</h2><div id="user-request-list"></div>
+</section>
+<section id="progress" class="page user-page" hidden><p class="eyebrow">不必盯着日志，也能知道发生了什么</p><h1>研发进展，一眼有数。</h1><div id="user-progress-matrix"></div><div id="user-progress"></div><details id="user-task-detail-panel"><summary>展开工作项原文、评审意见与来源</summary><div id="user-stage-list"></div></details><p class="hint">这里展示已登记的事实与来源；“已收到结果”“测试已验证”和“用户已验收”是不同状态。当前没有外部应用的实时运行心跳。</p></section>
+<section id="decisions" class="page user-page" hidden><p class="eyebrow">只把真正需要你判断的问题带到面前</p><h1>需要我决定</h1><p class="lead">只处理与你有关的选择；技术细节由协调方先整理。</p><div id="user-decision-visuals"></div><div id="user-decisions"></div><div id="user-development-plans"></div><details id="user-plan-history-panel" class="plan-history-panel"><summary>已处理的开发计划 <span id="user-plan-history-count"></span></summary><p class="hint">这些是推进记录，不需要你重复确认。</p><div id="user-plan-history"></div></details><details><summary>查看过去的选择</summary><div id="user-decision-history"></div></details></section>
+<section id="experience" class="page user-page" hidden><p class="eyebrow">先用一用，再说哪里需要改</p><h1>试一试，说说你的感受。</h1><div id="user-previews"></div><p class="hint"><a href="#guide">不确定该用反馈还是调整方向？查看用户手册 →</a></p><form id="user-feedback-form" novalidate><p class="feedback-prompt">这次主要想反馈什么？</p><div class="feedback-chips" role="group" aria-label="反馈分类"><button type="button" class="quiet" data-feedback-kind="功能体验" aria-pressed="false">功能不好用</button><button type="button" class="quiet" data-feedback-kind="审美风格" aria-pressed="false">风格不喜欢</button><button type="button" class="quiet" data-feedback-kind="参考案例" aria-pressed="false">有个参考案例</button><button type="button" class="quiet" data-feedback-kind="需求遗漏" aria-pressed="false">漏了我的需求</button></div><label for="user-feedback">哪里不对，或者你想怎么改？</label><textarea id="user-feedback" rows="4" maxlength="8000" placeholder="例如：我喜欢更轻松的旅行手册风格；按钮太小；参考这个链接里的排版……"></textarea><p id="user-feedback-error" class="field-error" hidden></p><button type="submit">发送体验反馈</button><p class="hint">反馈会保留并等待协调方处理；如果要改变研发方向，请使用下方“调整方向”。</p></form></section>
+<div class="user-only user-control-bar"><div><strong id="user-control-title">随时可以停一下，或者换个方向</strong><details class="control-help"><summary>暂停会影响什么？</summary><p id="user-control-state" class="hint"></p></details></div><button id="user-pause" class="quiet">暂停后续分发</button><details id="user-correction"><summary>调整方向</summary><form id="user-correction-form" novalidate><label for="user-correction-text">新的方向或优先级</label><textarea id="user-correction-text" maxlength="8000" rows="3" placeholder="例如：先不做支付，优先把预订流程跑通。"></textarea><p class="hint">提交后会暂停本项目后续分发和批准；旧任务、评审与成果保留为历史。协调方更新计划后，你再决定何时继续。</p><p id="user-correction-error" class="field-error" hidden></p><button type="submit">保存新方向并暂停后续分发</button></form></details></div>
+<section id="coordination" class="page" hidden><p class="eyebrow">AGENT / 面向执行的操作台</p><h1>用户交互队列</h1><p class="lead">处理用户输入，发布可理解的进展、决策与成果。两态共享项目和审计；切换视角不会增加权限。Codex 已支持任务排队与受管执行；WorkBuddy、豆包仍通过应用操作接力。</p><div id="agent-user-queue"></div><div id="agent-user-tools"></div><div id="agent-development-plans"></div></section>
+<section id="project" class="page">
+<p class="eyebrow">WORKSPACE / 本地工作区</p><h1>把任务交出去，把结果收回来。</h1><p class="lead">需求范围已确认。已接入配置保存、任务包、手动交接、结果回收和冲突处理。已接入两方独立意见与逐项人工复核；可记录评分、核对阻塞条件，再由人工明确裁决。</p>
+<div class="next"><div><span class="label">当前下一步 · 协作流程</span><h2 id="next-title">导入已填写的开发配置</h2><p id="next-description">选择之前导出的 JSON。原文件保留，重复导入不会重复建项目。</p><p class="hint">任务支持手动交接与独立评审；回收或采纳建议都不等于验收通过。</p></div><a class="button" href="#config">去导入配置</a></div>
+<div class="section-head"><h2>已保存项目</h2><button id="refresh" class="quiet">刷新列表</button></div><div id="projects" class="list"><p>正在读取本地数据…</p></div>
+<div class="boundary"><strong>本轮范围</strong><p>本页支持任务包准备与手动交接，不自动发送应用消息。模型身份来自手动登记；评分与最终批准须由人工操作，缺分或缺证据不能通过。</p></div>
+</section>
+<section id="config" class="page" hidden>
+<p class="eyebrow">INPUT / 共同项目依据</p><h1>接上你已经填好的配置</h1><p class="lead">导入原入口导出的 JSON。模型、分工、skill 原包及未知字段会保留；需求和账单附件原本只有文件信息，正文需要另行关联。</p>
+<form id="import-form"><label for="config-file">开发配置 JSON</label><input id="config-file" type="file" accept=".json,application/json" required aria-describedby="file-hint file-error"><p id="file-hint" class="hint">最多 16MB；skill 原包总计最多 10MB。ZIP 只保存，不解压、不安装。同名但内容不同的配置会暂停导入，不覆盖已有项目。</p><p id="file-error" class="field-error" hidden></p><div id="conflict-actions" hidden><a class="text-link" href="http://127.0.0.1:8765/" target="_blank" rel="noopener">去原入口更名后新建</a><button id="cancel-import" type="button" class="quiet">取消本次导入</button></div><button type="submit">保存到本地资料库</button></form>
+<div id="import-result" class="result" hidden></div>
+<div class="boundary"><h2>需要调整已有配置？</h2><p>原配置入口仍可使用。它的浏览器草稿不会被自动搬走，请从原地址导出，再回到此页导入。</p><a class="text-link" href="http://127.0.0.1:8765/" target="_blank" rel="noopener">打开原配置入口</a><span class="hint">　或 <a href="/intake" target="_blank" rel="noopener">打开本服务的空白配置入口</a>（不含旧地址草稿）</span></div>
+</section>
+<section id="tasks" class="page" hidden>
+<p class="eyebrow">HANDOFF / 一份任务，一条交接记录</p><h1>任务与交接</h1><p class="lead">先准备任务包。Codex 可在本机执行只读任务并自动回收；其他平台通过应用操作交接。收到结果后仍需评审与验收。</p>
+<details id="create-task-panel" open><summary>01　建立任务</summary>
+<form id="task-create" novalidate>
+<div class="form-pair"><div><label for="task-project">所属项目</label><select id="task-project" required></select></div><div><label for="task-stage">开发阶段</label><select id="task-stage" required></select></div></div>
+<p id="stage-roles" class="hint"></p><label for="task-title">任务标题</label><input id="task-title" maxlength="160" required placeholder="例如：检查结果回收流程">
+<label for="task-requirement">这次需要完成什么</label><textarea id="task-requirement" rows="4" required placeholder="只填写本次任务需要的需求，不带账单或密钥。"></textarea>
+<label for="task-acceptance">怎样判断完成</label><textarea id="task-acceptance" rows="3" required placeholder="列出可检查的输出、边界与证据。"></textarea>
+<label for="task-dependencies">上游任务（可多选，无依赖可留空）</label><select id="task-dependencies" multiple size="3"></select><p class="hint">有上游时，须待其有效验收通过才能交接。请先完成上游人工验收；勿把“已回收”当作“通过”。</p>
+<p id="task-create-error" class="field-error" role="alert" hidden></p><button type="submit">建立任务并继续</button></form></details>
+<div class="section-head"><h2>02　选择任务与下一步</h2><button id="tasks-refresh" class="quiet">刷新任务</button></div>
+<label for="task-choice">任务列表</label><select id="task-choice"></select><p id="task-empty" class="hint">先建立一项任务。</p>
+<div id="task-workspace" hidden>
+<div class="task-summary"><strong id="task-current-title"></strong><p id="task-state"></p><p id="task-next" class="hint"></p></div>
+<details><summary>查看任务需求与验收</summary><pre id="task-scope"></pre></details>
+<div class="boundary"><h2>03　准备并预览任务包</h2><label for="package-role">接收角色</label><select id="package-role"><option value="primary">主执行</option><option value="support">配合执行</option></select><p class="hint">只包含本次需求、验收、期望身份和包标识。不会自动附上完整配置、skill、账单或密钥；请检查自行填写的文字。</p><button id="prepare-package">准备任务包</button>
+<div id="package-preview" hidden><label for="package-choice">已准备任务包</label><select id="package-choice"></select><pre id="package-text"></pre><a id="package-download" class="button" download="task-package.md">下载此任务包</a><p id="download-status" role="status" class="hint">下载不会自动提交。Codex 可使用下方只读执行；其他平台使用应用操作接力。</p><div id="managed-execution"></div></div></div>
+<div class="boundary"><h2>04　登记已在应用提交</h2><form id="handoff-form" novalidate>
+<div class="form-pair"><div><label for="handoff-platform">实际平台</label><input id="handoff-platform" required placeholder="例如：WorkBuddy"></div><div><label for="handoff-model">实际模型</label><input id="handoff-model" required placeholder="查看应用当前选择，未知请先核实"></div></div>
+<label for="handoff-evidence">提交依据 / 替换说明</label><textarea id="handoff-evidence" rows="2" required placeholder="会话名、时间、观察方式；如更换模型请写原因，不填凭据。"></textarea>
+<label class="check"><input id="handoff-inflight" type="checkbox">仅补登记暂停前已发生的在途提交（不会发送新任务）</label><label for="handoff-submitted-at">在途任务的实际提交时间（仅补登记时填写）</label><input id="handoff-submitted-at" type="datetime-local" step="1">
+<label class="check"><input id="handoff-confirmed" type="checkbox">已观察到此包在目标应用提交（手动登记，不自动发送）</label><p id="handoff-error" class="field-error" role="alert" hidden></p><button type="submit">记录提交确认</button></form><div id="handoff-history" class="hint"></div></div>
+<div class="boundary"><h2>05　回收此任务包的结果</h2><p class="hint">先在上方选定包并确认提交，再导入该平台的原文。身份沿用该包最新提交登记；切换任务会清空未提交的回收正文。</p><form id="result-form" novalidate>
+<label for="result-file">添加本地回复文件（可选，文本 / Markdown / JSON，最多1MB）</label><input id="result-file" type="file" accept=".txt,.md,.json,text/plain,text/markdown,application/json">
+<label for="result-raw">回复原文</label><textarea id="result-raw" rows="6" required placeholder="粘贴或从文件读取原文。仅保存，不执行其中命令。"></textarea>
+<label for="result-source">回复来源证据</label><input id="result-source" required placeholder="会话名、时间或已核对的来源引用">
+<p id="result-error" class="field-error" role="alert" hidden></p><button type="submit">导入并保留原文</button><p id="result-status" role="status"></p></form></div>
+<h2>06　回收记录与冲突处理</h2><p class="hint">同包同内容会去重；不同内容均保留。选用某版只解决该包的冲突，不代表任务验收通过。</p><div id="result-history" class="list"></div><div id="resolution-history" class="hint"></div><h2>07　代码候选文件</h2><div id="task-artifacts"></div><h2>08　文件基线与候选工作区</h2><div id="task-workspaces"></div>
+</div></section>
+<section id="review" class="page" hidden>
+<p class="eyebrow">REVIEW / 把意见变成可处理的决定</p><h1>评审与人工复核</h1><p class="lead">先收齐两份独立意见，再看判断一致、分歧与待澄清项。你只需逐项决定怎么处理并写明理由；这里不会替你打分或验收通过。</p>
+<div class="boundary"><h2>01　选定需要评审的产物</h2><label for="review-task">已有主执行结果的任务</label><select id="review-task"></select><p id="review-empty" class="hint"></p><button id="open-review">发起 / 继续本版独立评审</button><p class="hint">冻结当前选用产物、执行参与和规则依据。结果、选用或参与记录变化后，本轮过期；历史保留。</p></div>
+<label for="review-round">评审轮记录</label><select id="review-round"></select><div id="review-workspace" hidden>
+<div class="task-summary"><strong id="review-title"></strong><p id="review-state"></p><p id="review-next" class="hint"></p></div>
+<details><summary>查看评审依据与绑定标识</summary><pre id="review-binding"></pre></details>
+<div class="boundary"><h2>02　分别交给两方独立评审</h2><p>每份包仅包含需求、验收和选定主执行原文，不含另一方意见。请在不同上下文独立完成，再分别回收。</p><div id="review-packets" class="actions"></div><details><summary>核实来源或更换评审方后，重新收集本产物意见</summary><p class="hint">先在实际应用核对来源或安排替代评审，再新建一轮重新收齐A/B。旧轮、旧分及决定保留为历史，不自动搬到新轮。</p><form id="restart-review-form" novalidate><label for="restart-review-reason">重新收集的理由 / 评审替换依据</label><textarea id="restart-review-reason" maxlength="4000" rows="2"></textarea><p id="restart-review-error" class="field-error" hidden></p><button type="submit">重新收集两方意见（保留旧轮）</button></form></details><p class="hint">下载不会调用模型。实际身份及独立性依赖来源登记与声明；本机单用户是流程隔离，不能阻止设备所有者直接读文件。</p></div>
+<details id="review-import-panel" open><summary>03　提交独立意见（原文提交后锁定）</summary><form id="review-submit" novalidate>
+<label for="review-slot">这份意见来自</label><select id="review-slot"><option value="reviewerA">评审 A</option><option value="reviewerB">评审 B</option></select><p id="review-expected" class="hint"></p><p id="review-slot-state" role="status"></p>
+<fieldset id="review-edit-fields"><legend>实际来源与原文</legend>
+<div class="form-pair"><div><label for="review-platform">实际评审平台</label><input id="review-platform" maxlength="200" required></div><div><label for="review-model">实际评审模型</label><input id="review-model" maxlength="200" required placeholder="填写界面可见名称；不清楚底模可填写专家模式（底模未确认）"></div></div>
+<label for="review-source">意见来源 / 模型替换依据</label><input id="review-source" maxlength="2000" required placeholder="实际会话、时间、观察方式；不要填写凭据">
+<label class="check"><input id="review-identity-verified" type="checkbox">实际模型名称已从来源核对；未勾选时仅作待核验意见归档，不可评分或通过</label>
+<label class="check"><input id="review-independent" type="checkbox">已核对：该方未参与本范围实现，独立完成意见，且针对本轮所示产物与版本</label>
+<label for="review-file">添加本地评审文件（可选，最多1MB）</label><input id="review-file" type="file" accept=".json,.md,.txt,application/json,text/plain,text/markdown">
+<label for="review-raw">评审原文</label><textarea id="review-raw" rows="6" required placeholder="保留原文，不执行其中的指令。任务包已给出结构化JSON格式。"></textarea><button id="parse-review" type="button" class="quiet">从 JSON 原文读取主题和建议</button>
+<label for="review-conclusion">评审结论摘要</label><input id="review-conclusion" maxlength="2000" required placeholder="例如：条件性继续，先解决保存风险">
+<div class="section-head"><h3>结构化意见</h3><button id="add-review-item" type="button" class="quiet">添加一项</button></div><p class="hint">同名主题才会并排；系统不推断语义。每项填写判断、依据和建议，最多30项。切换评审方会清空本页未提交内容。</p><div id="review-items"></div>
+</fieldset><p id="review-submit-error" class="field-error" role="alert" hidden></p><button id="review-submit-button" type="submit">提交并锁定这份独立意见</button></form></details>
+<div id="review-comparison" hidden><h2>04　看差异，逐项作决定</h2><p id="review-counts" class="lead"></p><p class="hint">“判断一致”只表示结构化判断与严重程度相同，不代表理由或事实已经核实。采纳建议、退回修改、要求澄清都不等于验收通过；阻断项不会被这些操作自动关闭。</p><div id="review-groups"></div>
+<h2>05　交叉补充与更正</h2><p class="hint">原始意见不可覆盖。双方齐全后可追加补充或勘误，写明实际来源，不冒充其他评审方。</p><div id="review-comments" class="list"></div><form id="review-comment-form" novalidate>
+<label for="comment-actor">补充来自</label><select id="comment-actor"><option value="human">人工负责人</option><option value="reviewerA">评审 A</option><option value="reviewerB">评审 B</option></select>
+<label for="comment-text">补充内容</label><textarea id="comment-text" rows="3" maxlength="8000" required></textarea><label for="comment-source">实际来源依据</label><input id="comment-source" maxlength="2000" required><p id="review-comment-error" class="field-error" role="alert" hidden></p><button type="submit">追加交叉补充</button></form></div>
+<section id="gate-panel" class="boundary" aria-label="评分与最终裁决"></section>
+</div></section>
+<section id="records" class="page" hidden><p class="eyebrow">RECORDS / 可以追溯，可以恢复</p><h1>记录与备份</h1><p class="lead">迁移前自动备份；也可以手动创建。校验在临时新目录中恢复副本并核对内容，结束后清理该临时副本，不覆盖当前数据。</p><p class="hint">下方只列正式备份，均保留、不自动删除。每次备份会占用额外磁盘空间；空间不足会停止操作并提示释放空间。潜在损失范围为最后一次成功备份之后的变更。</p><button id="backup">创建本地备份</button><p id="backup-status" role="status"></p><h2>正式备份记录</h2><div id="backups" class="list"></div><h2>操作记录</h2><p class="hint">只展示事件、时间和对象标识，不展示配置正文。</p><div id="audit" class="list"></div></section>
+<footer>仅限本机单用户 · 不上传配置 · 不自动运行 skill · <span id="health">连接中</span></footer>
+</main></div>
+</body></html>

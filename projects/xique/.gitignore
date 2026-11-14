@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+*.local.json
+*SecretKey*.csv
+node_modules/
+runtime/
